@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Agenda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Administrar Agenda</h1>
+    <form id="agenda-form">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required>
+        
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required>
+        
+        <label for="lugar">Lugar:</label>
+        <input type="text" id="lugar" name="lugar" required>
+        
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" required></textarea>
+        
+        <button type="submit">Agregar Actividad</button>
+    </form>
+    <h2>Actividades Existentes</h2>
+    <div id="agenda-list"></div>
+
+    <script>
+        const agendaFilePath = 'agenda.json';
+
+        function cargarAgenda() {
+            fetch(agendaFilePath)
+                .then(response => response.json())
+                .then(data => {
+                    const agendaList = document.getElementById('agenda-list');
+                    agendaList.innerHTML = '';
+                    data.forEach((evento, index) => {
+                        const eventElement = document.createElement('div');
+                        eventElement.className = 'agenda-evento';
+                        eventElement.innerHTML = `
+                            <h3>${evento.titulo}</h3>
+                            <p><strong>Fecha:</strong> ${evento.fecha}</p>
+                            <p><strong>Hora:</strong> ${evento.hora}</p>
+                            <p><strong>Lugar:</strong> ${evento.lugar}</p>
+                            <p>${evento.descripcion}</p>
+                            <button onclick="eliminarActividad(${index})">Eliminar</button>
+                        `;
+                        agendaList.appendChild(eventElement);
+                    });
+                })
+                .catch(error => console.error('Error al cargar la agenda:', error));
+        }
+
+        function agregarActividad(event) {
+            event.preventDefault();
+            const nuevaActividad = {
+                titulo: document.getElementById('titulo').value,
+                fecha: document.getElementById('fecha').value,
+                hora: document.getElementById('hora').value,
+                lugar: document.getElementById('lugar').value,
+                descripcion: document.getElementById('descripcion').value,
+            };
+            fetch(agendaFilePath)
+                .then(response => response.json())
+                .then(data => {
+                    data.push(nuevaActividad);
+                    return fetch(agendaFilePath, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    });
+                })
+                .then(() => {
+                    document.getElementById('agenda-form').reset();
+                    cargarAgenda();
+                })
+                .catch(error => console.error('Error al agregar actividad:', error));
+        }
+
+        function eliminarActividad(index) {
+            fetch(agendaFilePath)
+                .then(response => response.json())
+                .then(data => {
+                    data.splice(index, 1);
+                    return fetch(agendaFilePath, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    });
+                })
+                .then(() => cargarAgenda())
+                .catch(error => console.error('Error al eliminar actividad:', error));
+        }
+
+        document.getElementById('agenda-form').addEventListener('submit', agregarActividad);
+
+        cargarAgenda();
+    </script>
+</body>
+</html>

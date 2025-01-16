@@ -1,0 +1,216 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px; /* Ajusta el tamaño según lo necesario */
+    color: #333; /* Color de texto */
+    line-height: 1.6;
+
+h1, h2, h3 {
+    font-family: Montserrat, sans-serif;
+    font-size: 28px;
+    font-weight: 700; /* Negrita */
+}
+
+p {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400; /* Regular */
+}
+
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    background: #003C69; /* Azul del Frente Amplio */
+    color: #fff;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center; /* Alinea verticalmente el texto y las banderas */
+    position: relative; /* Para mantener la posición de las banderas */
+}
+
+/* Contenedor de las banderas */
+.flags {
+    position: absolute; /* Coloca las banderas fuera del flujo normal */
+    left: 20px; /* Espaciado desde el borde izquierdo */
+    display: flex;
+    gap: 10px; /* Espaciado entre las banderas */
+}
+
+/* Estilo para las banderas */
+.flag {
+    width: 60px; /* Ancho fijo para las banderas */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 0px; /* Opcional: Bordes rectos */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+}
+
+.header h1 {
+    text-align: center;
+    flex-grow: 1; /* Hace que el h1 ocupe el espacio disponible en el centro */
+    font-size: 2rem; /* Ajusta el tamaño de la fuente si es necesario */
+}
+
+/* Estilo de la navegación */
+.nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 1rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: #F7F7F7;
+    padding: 2rem 1rem;
+}
+
+.hero h2 {
+    color: #003865;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ED1A25; /* Rojo del Frente Amplio */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.cta-button:hover {
+    background: #A41E15;
+}
+
+/* Secciones */
+section {
+    padding: 2rem 1rem;
+}
+
+.sobre, .video, .agenda, .enfasis , .noticias, .participa {
+    background: #F7F7F7;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para las imágenes en secciones */
+.image-container {
+    text-align: center; /* Centra la imagen dentro del contenedor */
+    margin: 20px 0; /* Espaciado entre la imagen y el contenido */
+}
+
+.responsive-image {
+    max-width: 100%; /* Asegura que la imagen no sobrepase el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle un toque visual */
+}
+
+#video {
+    background-color: #F7F7F7; /* Fondo gris */
+    padding: 20px; /* Espaciado alrededor del iframe */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    text-align: left; /* Centra el contenido dentro del contenedor */
+    margin: 0 auto; /* Asegura que el contenedor se centre en la página */
+}
+
+#video iframe {
+    display: block; /* Hace que el iframe sea un bloque para centrarse */
+    margin: 0 auto; /* Centra el iframe dentro de su contenedor */
+    background-color: #F7F7F7; /* Fondo gris */
+    padding: 20px; /* Espaciado alrededor del iframe */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.agenda {
+
+}
+.agenda .event {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.agenda .event h3 {
+    margin: 10px 0;
+    color: #333;
+}
+.agenda .event p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+.agenda .cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.agenda .cta-button:hover {
+    background-color: #003C69;
+    align: center;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #0d47a1; /* Azul oscuro del Frente Amplio */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 14px;
+    border-top: 4px solid #FEDA00; /* Línea dorada */
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer .container p {
+    margin: 0;
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer .social-icons a img {
+    width: 30px; /* Tamaño de los íconos */
+    height: 30px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.footer .social-icons a img:hover {
+    transform: scale(1.2); /* Efecto de zoom */
+}

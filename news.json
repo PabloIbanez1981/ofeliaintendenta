@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "slug": "proyecto-acceso-servicios-basicos-ciudad-del-plata",
+        "title": "Proyecto de acceso a servicios básicos para Ciudad del Plata",
+        "description": "Un plan integral para agua potable, saneamiento y electricidad.",
+        "date": "2025-01-13",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac lorem eu erat gravida pharetra in at lorem. Maecenas a velit ac lorem fringilla gravida."
+    },
+    {
+        "id": "2",
+        "slug": "recorrida-por-barrios-de-san-jose",
+        "title": "Recorrida por barrios de San José",
+        "description": "La candidata visitó los barrios para dialogar con los vecinos.",
+        "date": "2025-01-12",
+        "content": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin id metus orci. Aenean feugiat eu lorem nec tincidunt."
+    }
+]
